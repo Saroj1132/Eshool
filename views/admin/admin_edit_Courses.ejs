@@ -1,0 +1,98 @@
+<%- include('./Partials/header.ejs') %>
+
+<div class="col-sm-6 mt-5 mx-3 jumbotron">
+    <h3 class="text-center">Update Courses</h3>
+    <form action="/admin/admin_edit_Courses/<%=com._id%>" method="post" id="course" enctype="multipart/form-data">
+      <input type="hidden" name="_id" value="<%=com._id%>">
+        <div class="form-group">
+            <label for="course_name" class="pl-2 font-weight-bold">Course Name</label> &nbsp;&nbsp;<small id="smsg1"></small>
+            <input type="text" id="course_name" class="form-control" name="course_name" value="<%=com.course_name%>">
+          </div>
+          <div class="form-group">
+            <label for="course_desc" class="pl-2 font-weight-bold">Course Description</label> &nbsp;&nbsp;<small id="smsg1"></small>
+            <input type="text" id="course_desc" class="form-control" name="course_desc" value="<%=com.course_desc%>">
+          </div>
+          <div class="form-group">
+            <label for="course_author" class="pl-2 font-weight-bold">Author</label> &nbsp;&nbsp;<small id="smsg1"></small>
+            <input type="text" id="course_author" class="form-control" name="course_author" value="<%=com.course_author%>">
+          </div>
+          <div class="form-group">
+            <label for="course_duration" class="pl-2 font-weight-bold">Duration</label> &nbsp;&nbsp;<small id="smsg1"></small>
+            <input type="text" id="course_duration" class="form-control" name="course_duration" value="<%=com.course_duration%>">
+          </div>
+          <div class="form-group">
+            <label for="course_original_price" class="pl-2 font-weight-bold">Course Original Price</label> &nbsp;&nbsp;<small id="smsg1"></small>
+            <input type="text" id="course_original_price" class="form-control" name="course_original_price" value="<%=com.course_original_price%>">
+          </div>
+          <div class="form-group">
+            <label for="course_price" class="pl-2 font-weight-bold">Course Selling Price</label> &nbsp;&nbsp;<small id="smsg1"></small>
+            <input type="text" id="course_price" class="form-control" name="course_price" value="<%=com.course_price%>">
+          </div>
+          
+          <div class="form-group">
+            <label for="course_img" class="pl-2 font-weight-bold">Course Image</label> &nbsp;&nbsp;<small id="smsg1"></small>
+            <img src="/images/<%=com.course_img%>" alt=""  height="150px">
+            <input type="file" id="course_img" name="course_img">
+          </div>
+          
+          <div class="modal-footer">
+            <span id="messagelog"></span>
+            <button type="submit" onclick="courseadd()" class="btn btn-danger" id="coursesubmitbtn" name="coursesubmitbtn">Submit</button>
+            <a href="/admin/courses" class="btn btn-secondary">close</a>
+          </div>
+          <p style="color: green;"><%=msg%></p>
+    </form>
+</div>
+
+<%- include('./Partials/Footer.ejs') %>
+<script>
+  $("#course").validate({
+  rules: {
+      
+      
+      course_name: {
+          required: true,
+      },
+      course_desc: {
+          required: true,
+      },
+      course_author: {
+          required: true,
+      },
+      course_duration: {
+          required: true,
+      },
+      course_original_price: {
+          required: true,
+      },
+      course_price: {
+          required: true,
+      },
+  },
+  messages: {
+    
+      
+      course_name: {
+          required: "Please enter your Course name"
+      },
+      course_desc: {
+          required: "Please enter description of course"
+      },
+      course_author: {
+          required: "Please enter course author name"
+      },
+      course_duration: {
+          required: "Please enter your Duration of the course"
+      },
+      course_original_price: {
+          required: "Please enter your course original price"
+      },
+      course_price: {
+          required: "Please enter your course selling price"
+      },
+  }
+  
+});
+</script>
+
+ 

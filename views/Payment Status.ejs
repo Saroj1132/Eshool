@@ -1,0 +1,71 @@
+<%- include('./Partials/header.ejs') %>
+
+<!-- Start Course Page Banner -->
+
+<div class="container-fluid bg-dark">
+  <div class="row">
+      <img src="https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/tp215-k-pf-coke-1213-01e.jpg?w=1200&h=1200&dpr=1&fit=clip&crop=default&fm=jpg&q=75&vib=3&con=3&usm=15&cs=srgb&bg=F4F4F3&ixlib=js-2.2.1&s=a22c03ff9d29dbb3dd80ff755e7ce459" 
+      alt="courses" 
+      style="height: 500px; width: 100%; object-fit: cover;
+      box-shadow: 10px;"/>
+  </div>
+</div>
+
+<!-- End Course Page Banner -->
+
+<!-- Start Main Content -->
+
+<div class="container">
+  <h2 class="text-center my-4">Payment Sttaus</h2>
+  <form action="/PaymentStatus" method="post">
+    <div class="form-group row">
+      <label class="offset-sm-3 col-form-label">Order Id:</label>
+      <div>
+        <input id="my-input" class="form-control" type="text" name="Order_Id">
+      </div>
+      <div>
+        <input type="submit" class="btn btn-primary" value="view"></input>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-auto">
+      <% record.forEach(function(p){ %>
+      <h2 class="text-center">Payment Receipt</h2>
+      <table class="table table-bordered">
+            <tr>
+            <td>OrderId</td>
+            <td><%=p.Order_Id%></td>
+            </tr>
+            <tr>
+              <td>TaxAmount</td>
+              <td><%=p.Amount%></td>
+            </tr>
+            <tr>
+              <td>Status</td>
+              <td><%=p.status%></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><button class="btn btn-primary" onclick="window.print()">Print Recepit</button></td>
+            </tr>
+          
+      </table>
+      
+      <% }) %>
+    </div>
+  </div>
+</div>
+
+
+<!-- End Main Content -->
+
+  <!-- Start Contcat us -->
+  
+
+  <%- include('./ContactUs.ejs') %>
+  <!-- end Contcat us -->
+  
+<%- include('./Partials/Footer.ejs') %>

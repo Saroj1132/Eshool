@@ -1,0 +1,67 @@
+<%- include('./Partials/header.ejs') %>
+
+<div class="col-sm-6 mt-5 mx-3 jumbotron">
+    <h3 class="text-center">Edit Lesson</h3>
+    <form action="/admin/admin_edit_Lesson/<%=com._id%>" method="post" id="lesson" enctype="multipart/form-data">
+      <input type="hidden" name="_id" value="<%=com._id%>">
+          <div class="form-group">
+            <label for="course_id" class="pl-2 font-weight-bold">Course Id</label> &nbsp;&nbsp;<small id="smsg1"></small>
+            <input type="text" id="course_id" class="form-control" name="course_id" value="<%=course_id%>" readonly>
+          </div>
+          <div class="form-group">
+            <label for="course_name" class="pl-2 font-weight-bold">Course Name</label> &nbsp;&nbsp;<small id="smsg1"></small>
+            <input type="text" id="course_name" class="form-control" name="course_name" value="<%=course_name%>" readonly>
+          </div>
+          <div class="form-group">
+            <label for="lesson_name" class="pl-2 font-weight-bold">Lesson Name</label> &nbsp;&nbsp;<small id="smsg1"></small>
+            <input type="text" id="lesson_name" class="form-control" name="lesson_name" value="<%=com.lesson_name%>">
+          </div>
+          <div class="form-group">
+            <label for="lesson_desc" class="pl-2 font-weight-bold">Lesson Description</label> &nbsp;&nbsp;<small id="smsg1"></small>
+            <input type="text" id="lesson_desc" class="form-control" name="lesson_desc" value="<%=com.lesson_desc%>">
+          </div>
+          <div class="form-group">
+            <label for="lesson_link" class="pl-2 font-weight-bold">Lesson Link</label> &nbsp;&nbsp;<small id="smsg1"></small>
+            <div class="embed-responsive embed-responsive-16by9">
+              <iframe class="embed-responsive-item" src="/videos/<%=com.lesson_link%>" allowfullscreen></iframe>
+            </div>
+            <input type="file" id="lesson_link" name="lesson_link">
+          </div>
+          
+          <div class="modal-footer">
+            <span id="messagelog"></span>
+            <button type="submit" class="btn btn-danger" id="lessonsubmitbtn" name="lessonsubmitbtn">Submit</button>
+            <a href="/admin/admin_lesson" class="btn btn-secondary">close</a>
+          </div>
+          <p style="color: green;"><%=msg%></p>
+    </form>
+</div>
+
+<%- include('./Partials/Footer.ejs') %>
+ 
+<script>
+  $("#lesson").validate({
+  rules: {
+    
+      lesson_name: {
+          required: true,
+      },
+      lesson_desc: {
+          required: true,
+      }
+  },
+  messages: {
+    
+      
+      lesson_name: {
+          required: "Please enter your Lesson name of the Course"
+      },
+      lesson_desc: {
+          required: "Please enter description of lesson"
+      }
+  }
+  
+});
+</script>
+
+ 

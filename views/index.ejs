@@ -1,0 +1,406 @@
+<%- include('./Partials/header.ejs') %>
+<% let first_array = []%>
+  <% success.forEach(function(msg){ %>
+      
+          <%first_array.push(msg)%>
+
+
+      <% }) %>
+      <% let second_array = []%>
+
+      <% errors.forEach(function(err){ %>
+
+              <%second_array.push(err)%>
+
+          <% }) %>
+  <!-- start bg video -->
+
+  <div class="container-fluid remove-vid-marg">
+    <div class="vid-parent">
+      <video playsinline autoplay muted loop>
+        <source src="">
+      </video>
+      <div class="vid-overlay">
+
+      </div>
+    </div>
+    <div class="vid-container">
+      <h1 class="my-content">Welcome to school</h1>
+      <small class="my-content">Learn and Implement</small>
+      <br>
+      <% if(typeof stud !=="undefined") {%>
+
+      <a href="/Student/Student_Profile" class="btn btn-primary">
+        My Profile
+      </a>
+
+      <% } else { %>
+        <a href="" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+          Get Started
+        </a>
+        <% } %>
+    </div>
+  </div>
+
+  <!-- end bg video -->
+
+  <!-- start text banner -->
+
+  <div class="container-fluid bg-danger txt-banner">
+    <div class="row bottom-banner">
+      <div class="col-sm">
+        <h5><i class="fas fa-book-open mr-3"></i>  100 + Online Courses</h5>
+      </div>
+      <div class="col-sm">
+        <h5><i class="fas fa-users mr-3"></i>  Expert Instructors</h5>
+      </div>
+      <div class="col-sm">
+        <h5><i class="fas fa-keyboard mr-3"></i>  Lifetime Access</h5>
+      </div>
+      <div class="col-sm">
+        <h5><i class="fas fa-rupee-sign mr-3"></i>  Money Back Guarantee</h5>
+      </div>
+      
+    </div>
+  </div>
+
+  <!-- end text banner -->
+
+  <!-- start most popular cousrs -->
+
+  <div class="container mt-5">
+    <h1 class="text-center">Popular Course</h1>
+    <div class="card-deck mt-4">
+      <%record.forEach(function(p){ %>
+      <div class="col-sm-4 mb-4">
+        <a href="#" class="btn" style="text-align: left; padding: 0px; margin: 0px;">
+          <div class="card">
+            <img src="/images/<%=p.course_img%>" class="card-img-top" alt="Guiatar" height="300px" />
+            <div class="card-body">
+              <h5 class="card-title"><%=p.course_name%></h5>
+              <p class="card-text"><%=p.course_desc%></p>
+            </div>
+            <div class="card-footer">
+                  <p class="card-text d-inline">Price: <small><del>&#8377 <%=p.course_original_price%></del></small>
+                    <span class="font-weight-bolder">&#8377 <%=p.course_price%></span>
+                  </p>
+                  <a href="/Course_Details/<%=p._id%>" class="btn btn-primary text-white font-weight-bolder font-right">Enroll</a>
+   
+            </div>
+          </div>
+        </a>
+      </div>
+      <% }) %>
+    </div>
+    <div class="text-center m-2">
+      <a href="/Course" class="btn btn-danger btn-sm">View All Course</a>
+    </div>
+  </div>
+
+
+  <!-- end most popular cousrs -->
+  
+  <!-- Start Contcat us -->
+  
+
+  <%- include('./ContactUs.ejs') %>
+  <!-- end Contcat us -->
+  
+  <!-- start studemts Testimonial -->
+
+  <div class="container-fluid mt-5" style="background-color: #487289;" id="feedback">
+    <h1 class="text-center testyheading p-4">Students's Feedback</h1>
+    <div class="row">
+      <div class="col-md-12">
+        <div id="testimonial-slider" class="owl-carousel">
+          <% feedback.forEach(function(p){ %>
+            <div class="testimonial">
+              <p class="description">
+                <%=p.Feedback_Content%>
+              </p>
+              <div class="pic">
+                <img src="/stuimages/<%=p.studId.Image%>" alt="" height="100px" />
+              </div>
+              <div class="testimonial-prof">
+                <h4><%=p.studId.Student_Name%></h4>
+                <small><%=p.studId.Student_Occupation%></small>
+              </div>
+            </div>
+          <% }) %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- End studemts Testimonial -->
+
+  <!-- Start Social Media -->
+
+  <div class="container-fluid bg-danger">
+    
+  <div class="row text-white text-center p-1">
+    <div class="col-sm">
+      <a href="" class="text-white social-hover">
+        <i class="fab fa-facebook-f"></i>Facebook
+      </a>
+    </div>
+    <div class="col-sm">
+      <a href="" class="text-white social-hover">
+        <i class="fab fa-twitter"></i>Twitter
+      </a>
+    </div>
+    <div class="col-sm">
+      <a href="" class="text-white social-hover">
+        <i class="fab fa-whatsapp"></i>Whatsapp
+      </a>
+    </div>
+    <div class="col-sm">
+      <a href="" class="text-white social-hover">
+        <i class="fab fa-instagram"></i>Instagram
+      </a>
+    </div>    
+  </div>
+</div>
+  <div class="container-fluid p-4" style="background-color:#E9ECEF;">
+    <div class="container" style="background-color: #E9ECEF;">
+      <div class="row text-center">
+        <div class="col-sm">
+          <h5>About Us</h5>
+          <p>jhfhjdh</p>
+        </div>
+        <div class="col-sm">
+          <h5>Catrogry</h5>
+          <a href="" class="text-dark">Web Development</a><br>
+          <a href="" class="text-dark">Web Designinig</a><br>
+          <a href="" class="text-dark">Android App DEV</a><br>
+          <a href="" class="text-dark">ios Development</a><br>
+          <a href="" class="text-dark">Data Analysis</a>
+
+        </div>
+        <div class="col-sm">
+          <h5>Contact Us</h5>
+          <p>iSchool, Near Police Camp IT, Bokaro,
+            Jharkand - 834005 <br>
+            Phone: +918521478555 <br>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  
+
+  <!-- end Social Media -->
+
+  <!-- Footer -->
+
+  <%- include('./Partials/Footer.ejs') %>
+
+  <!-- End Footer -->
+
+  <!-- Button trigger modal -->
+    
+
+    <!-- Start Student Reg Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Student Registration</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form action="/StudentRegistraion" method="post" id="studreg">
+              <div class="form-group">
+                <i class="fas fa-user" aria-hidden="true"></i>                
+                <label for="Sname" class="pl-2 font-weight-bold">Name</label> &nbsp;&nbsp;<small id="vmsg1"></small>
+                <input type="text" class="form-control" name="studregname" id="studregname">
+              </div>
+              
+              <div class="form-group">
+                <i class="fas fa-envelope" aria-hidden="true"></i>                
+                <label for="email" class="pl-2 font-weight-bold">Email</label> &nbsp;&nbsp;<small id="vmsg2"></small>
+                <input type="text" class="form-control" name="studregemail" id="studregemail">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              </div>
+              <div class="form-group">
+                <i class="fas fa-key" aria-hidden="true"></i>                
+                <label for="password" class="pl-2 font-weight-bold">Password</label>  &nbsp;&nbsp;<small id="vmsg3"></small>
+                <input type="password" class="form-control" name="studregpassword" id="studregpassword">
+              </div>
+              <div class="modal-footer">
+                <span id="messagereg"></span>
+                <button type="button" onclick="studreg()" id="signup" class="btn btn-primary">Signup</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          </div>
+            </form>
+
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+        <!-- End Student Reg Modal -->
+
+        <!-- Start Student Login model -->
+
+    <div class="modal fade" id="studloginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Student Login</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form action="/Studentlogin" method="post">
+              
+              <div class="form-group">
+                <i class="fas fa-envelope" aria-hidden="true"></i>                
+                <label for="email" class="pl-2 font-weight-bold">Email</label> &nbsp;&nbsp;<small id="smsg1"></small>
+                <input type="text" id="studlogemail" class="form-control" name="studlogemail">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              </div>
+              <div class="form-group">
+                <i class="fas fa-key" aria-hidden="true"></i>                
+                <label for="password" class="pl-2 font-weight-bold">Password</label> &nbsp;&nbsp;<small id="smsg2"></small>
+                <input type="password" id="studlogpassword" class="form-control" name="studlogpassword">
+              </div>
+              <div class="modal-footer">
+                <span id="messagelog"></span>
+                <button type="button" onclick="studlogin()" class="btn btn-primary">Login</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+
+              </div>
+            </form>
+
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+
+
+        <!-- End Student Login Model -->
+
+
+                <!-- Start admin Login model -->
+
+    <div class="modal fade" id="AdminloginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Admin Login</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form action="/adminlogin" method="post">
+              
+              <div class="form-group">
+                <i class="fas fa-envelope" aria-hidden="true"></i>                
+                <label for="email" class="pl-2 font-weight-bold">Email</label>&nbsp;&nbsp;<small id="amsg1"></small>
+                <input type="text" class="form-control" id="adminlogemail" name="adminlogemail">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              </div>
+              <div class="form-group">
+                <i class="fas fa-key" aria-hidden="true"></i>                
+                <label for="password" class="pl-2 font-weight-bold">Password</label>&nbsp;&nbsp;<small id="amsg2"></small>
+                <input type="password" class="form-control" id="adminlogpassword" name="adminlogpassword">
+              </div>
+              <div class="modal-footer">
+                <button type="button" onclick="adminlogin()" class="btn btn-primary">Login</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+
+              </div>
+            </form>
+
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+<!-- End Admin login -->
+    <script>
+      $(document).ready(function() {
+        let toastme= "<%=first_array%>"
+    
+        if(toastme  != ''){
+          toastr.success(toastme)
+    
+        }
+      })
+    
+    
+      $(document).ready(function() {
+        let toastme= "<%=second_array%>"
+    
+        if(toastme  != ''){
+          toastr.error(toastme)
+    
+        }
+      })
+</script>  
+        
+<script>
+  $("#studlog").validate({
+  rules: {
+      
+      studlogemail: {
+          required: true,
+          email: true
+      },
+      studlogpassword: {
+          required: true,
+      }
+  },
+  messages: {
+    
+      studlogemail: {
+          required: "Please enter your Email",
+          email: "Please enter a valid Email"
+      },
+      studlogpassword: {
+          required: "Please enter your Password"
+      },
+  }
+  
+});
+</script>
+
+<script>
+    $("#adminlog").validate({
+  rules: {
+      
+      adminlogemail: {
+          required: true,
+          email: true
+      },
+      adminlogpassword: {
+          required: true,
+      }
+  },
+  messages: {
+    
+      adminlogemail: {
+          required: "Please enter your Email",
+          email: "Please enter a valid Email"
+      },
+      adminlogpassword: {
+          required: "Please enter your Password"
+      },
+  }
+    })
+</script>
+<script src="/js/jquery.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+  </body>
+</html>

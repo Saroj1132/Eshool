@@ -1,0 +1,33 @@
+<%- include('./Partials/header.ejs') %>
+
+<div class="col-sm-9 mt-5">
+    <p class="bg-dark text-white p-2">List of Feedbacks</p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Feedback Id</th>
+                <th scope="col">Content</th>
+                <th scope="col">Student Id</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <%record.forEach(function(p){ %>
+                <input type="hidden" name="_id" value="<%=p._id%>">
+                <tr>
+                    <th scope="row"><%=p._id%></th>
+                    <td><%=p.Feedback_Content%></td>
+                    <td><%=p.studId%></td>
+                    <td><a href="/admin/admin_delete_Feedback/<%=p._id%>" class="btn btn-secondary" name="delete" id="delete"
+                        value="Delete"><i class="far fa-trash-alt" aria-hidden="true"></i></a>
+                    </td>
+                
+                    </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
+
+
+<%- include('./Partials/Footer.ejs') %>
+ 

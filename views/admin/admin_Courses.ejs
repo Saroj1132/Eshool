@@ -1,0 +1,40 @@
+<%- include('./Partials/header.ejs') %>
+
+<div class="col-sm-9 mt-5">
+    <p class="bg-dark text-white p-2">List of Courses</p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Course Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Author</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <%record.forEach(function(p){ %>
+                <input type="hidden" name="_id" value="<%=p._id%>">
+                <tr>
+                    <th scope="row"><%=p._id%></th>
+                    <td><%=p.course_name%></td>
+                    <td><%=p.course_author%></td>
+                    <td><a href="/admin/admin_edit_Courses/<%=p._id%>" class="btn btn-info mr-3" name="view" id="view"
+                        value="View"><i class="fas fa-pen" aria-hidden="true"></i></a>
+                        <a href="/admin/admin_delete_Courses/<%=p._id%>" class="btn btn-secondary" name="delete" id="delete"
+                        value="Delete"><i class="far fa-trash-alt" aria-hidden="true"></i></a>
+                    </td>
+                
+                    </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <a href="/admin/admin_add_Courses" class="btn btn-danger box">
+        <i class="fas fa-plus fa-2x"></i>
+    </a>
+</div>
+
+<%- include('./Partials/Footer.ejs') %>
+ 

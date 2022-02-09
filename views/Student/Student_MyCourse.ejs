@@ -1,0 +1,33 @@
+<%- include('./Partials/header.ejs') %>
+
+<div class="container mt-5 ml-4">
+    <p class="bg-dark text-white p-2">List of Courses</p>
+    <div class="row">
+        <div class="jumbotron">
+            <h4>All Course</h4>
+            <div class="bg-light mb-3">
+                <%record.forEach(function(p){ %>
+                    <h5 class="card-header"><%=p.course_id.course_name%></h5>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <img src="/images/<%=p.course_id.course_img%>" alt="pic" class="card-img-top mt-4">
+                        </div>
+                        <div class="col-sm-6 mb-3">
+                            <div class="card-body">
+                                <p class="card-title"><%=p.course_id.course_desc%></p>
+                                <small class="card-text">Duration: <%=p.course_id.course_desc%> </small><br>
+                                <small class="card-text">Instructor: <%=p.course_id.course_author%> </small><br>
+                                <p class="card-text d-inline">Price: <small><del>&#8377 <%=p.course_id.course_original_price%> </del></small>
+                                <span class="font-weight-bolder">&#8377 <%=p.course_id.course_price%></span></p>
+                                <a href="/Student/WatchCourse/<%=p.course_id._id%>" class="btn btn-primary">Watch Course</a>
+
+                            </div>
+                        </div>
+                    </div>
+                    <% }) %>
+            </div>
+        </div>
+    </div>    
+</div>
+
+<%- include('./Partials/Footer.ejs') %>

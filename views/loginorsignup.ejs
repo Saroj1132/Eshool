@@ -1,0 +1,132 @@
+<%- include('./Partials/header.ejs') %>
+  <!-- start text banner -->
+
+  <div class="container-fluid bg-dark">
+    <div class="row">
+      <img src="/stuimages/252229265_3102253216677250_2720423263501235845_n.jpg" alt="">
+    </div>
+  </div>
+
+  <!-- end text banner -->
+  <div class="container jumbotron mb-5">
+    <div class="row">
+      <div class="col-md-4">
+        <h5 class="mb-3">If Already Registred || Login</h5>
+        <form action="/Studentlogin" method="post">
+              
+          <div class="form-group">
+            <i class="fas fa-envelope" aria-hidden="true"></i>                
+            <label for="email" class="pl-2 font-weight-bold">Email</label> &nbsp;&nbsp;<small id="smsg1"></small>
+            <input type="text" id="studlogemail" class="form-control" name="studlogemail">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <i class="fas fa-key" aria-hidden="true"></i>                
+            <label for="password" class="pl-2 font-weight-bold">Password</label> &nbsp;&nbsp;<small id="smsg2"></small>
+            <input type="password" id="studlogpassword" class="form-control" name="studlogpassword">
+          </div>
+            <span id="messagelog"></span>
+            <button type="button" onclick="studlogin()" class="btn btn-primary">Login</button>
+
+        </form>
+
+      </div>
+      <div class="col-md-6 offset-md-1">
+        <h5 class="mb-3">New User || Signup</h5>
+        <form action="/StudentRegistraion" method="post" id="studreg">
+          <div class="form-group">
+            <i class="fas fa-user" aria-hidden="true"></i>                
+            <label for="Sname" class="pl-2 font-weight-bold">Name</label> &nbsp;&nbsp;<small id="vmsg1"></small>
+            <input type="text" class="form-control" name="studregname" id="studregname">
+          </div>
+          
+          <div class="form-group">
+            <i class="fas fa-envelope" aria-hidden="true"></i>                
+            <label for="email" class="pl-2 font-weight-bold">Email</label> &nbsp;&nbsp;<small id="vmsg2"></small>
+            <input type="text" class="form-control" name="studregemail" id="studregemail">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <i class="fas fa-key" aria-hidden="true"></i>                
+            <label for="password" class="pl-2 font-weight-bold">Password</label>  &nbsp;&nbsp;<small id="vmsg3"></small>
+            <input type="password" class="form-control" name="studregpassword" id="studregpassword">
+          </div>
+            <span id="messagereg"></span>
+            <button type="button" onclick="studreg()" id="signup" class="btn btn-primary">Signup</button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+<!-- Start Contcat us -->
+  
+
+  <%- include('./ContactUs.ejs') %>
+  <!-- end Contcat us -->
+  
+  <!-- Footer -->
+
+  <%- include('./Partials/Footer.ejs') %>
+
+  <!-- End Footer -->
+
+  <!-- Button trigger modal -->
+    
+
+        
+<script>
+  $("#studlog").validate({
+  rules: {
+      
+      studlogemail: {
+          required: true,
+          email: true
+      },
+      studlogpassword: {
+          required: true,
+      }
+  },
+  messages: {
+    
+      studlogemail: {
+          required: "Please enter your Email",
+          email: "Please enter a valid Email"
+      },
+      studlogpassword: {
+          required: "Please enter your Password"
+      },
+  }
+  
+});
+</script>
+
+<script>
+    $("#adminlog").validate({
+  rules: {
+      
+      adminlogemail: {
+          required: true,
+          email: true
+      },
+      adminlogpassword: {
+          required: true,
+      }
+  },
+  messages: {
+    
+      adminlogemail: {
+          required: "Please enter your Email",
+          email: "Please enter a valid Email"
+      },
+      adminlogpassword: {
+          required: "Please enter your Password"
+      },
+  }
+    })
+</script>
+<script src="/js/jquery.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+  </body>
+</html>

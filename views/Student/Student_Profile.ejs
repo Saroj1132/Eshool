@@ -1,0 +1,68 @@
+<%- include('./Partials/header.ejs') %>
+
+<div class="col-sm-6 mt-5 mx-3 jumbotron">
+    <form class="mx-5" action="/Student/Student_Profile" id="student" enctype="multipart/form-data" method="post">
+        
+        <div class="form-group">
+            <label for="Student_Email" class="pl-2 font-weight-bold">Email</label>
+            <input type="text" class="form-control" name="Student_Email" id="Student_Email" value="<%=doc.Student_Email%>" readonly>
+        </div>
+        <div class="form-group">
+            <label for="Student_Name" class="pl-2 font-weight-bold">Name</label>
+            <input type="text" class="form-control" name="Student_Name" id="Student_Name" value="<%=doc.Student_Name%>">
+        </div>
+        <div class="form-group">
+            <label for="Student_Occupation" class="pl-2 font-weight-bold">Occupation</label>
+            <input type="text" class="form-control" name="Student_Occupation" id="Student_Occupation" value="<%=doc.Student_Occupation%>">
+        </div>
+        <div class="form-group">
+            <label for="Student_Occupation" class="pl-2 font-weight-bold">Upload Image</label>
+            <input type="file" class="form-control-file" name="Image" id="Image">
+        </div>
+        <button type="submit" class="btn btn-primary" name="updateprofile">Update</button>  
+        <p style="color: green;"><%=msg%></p>
+
+    </form>
+    
+</div>
+
+</div>
+
+<%- include('./Partials/Footer.ejs') %>
+
+
+
+<script>
+    $("#student").validate({
+    rules: {
+        
+        
+        Student_Name: {
+            required: true,
+        },
+        Student_Email: {
+            required: true,
+            email: true
+        },
+        Student_Occupation: {
+            required: true,
+        }
+    },
+    messages: {
+      
+        
+        Student_Name: {
+            required: "Please enter student's name"
+        },
+        Student_Email: {
+            required: "Please enter students's email_id",
+            email: "Please enter a valid Email"
+        },
+        Student_Occupation: {
+            required: "Please enter students's Occupation"
+        }
+    }
+    
+  });
+  </script>
+  

@@ -1,0 +1,35 @@
+<%- include('./Partials/header.ejs') %>
+
+<div class="col-sm-6 mt-5 mx-3 jumbotron">
+    <form class="mx-5" action="/Student/Student_Feedback" id="Feedback" method="post">
+        <div class="form-group">
+            <label for="Feedback_Content" class="pl-2 font-weight-bold">Write Feedback</label>
+            <input type="text" class="form-control" name="Feedback_Content" id="Feedback_Content">
+        </div>
+        <button type="submit" class="btn btn-primary" name="addfeedback">Submit</button>  
+        <div class="alert alert-success col-sm-6 ml-5 mt-2" role="alert"><%=msg%></div>
+
+    </form>
+    
+</div>
+
+</div>
+
+<%- include('./Partials/Footer.ejs') %>
+
+<script>
+    $("#Feedback").validate({
+    rules: {
+        Feedback_Content: {
+            required: true,
+        }
+    },
+    messages: {
+        Feedback_Content: {
+            required: "Please write any Feedback"
+        }
+    }
+    
+  });
+  </script>
+  

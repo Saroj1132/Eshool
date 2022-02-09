@@ -1,0 +1,49 @@
+<%- include('./Partials/header.ejs') %>
+
+
+<!-- Start Course Page Banner -->
+
+<div class="container-fluid bg-dark">
+    <div class="row">
+        <img src="https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/tp215-k-pf-coke-1213-01e.jpg?w=1200&h=1200&dpr=1&fit=clip&crop=default&fm=jpg&q=75&vib=3&con=3&usm=15&cs=srgb&bg=F4F4F3&ixlib=js-2.2.1&s=a22c03ff9d29dbb3dd80ff755e7ce459" 
+        alt="courses" 
+        style="height: 500px; width: 100%; object-fit: cover;
+        box-shadow: 10px;"/>
+    </div>
+</div>
+
+<!-- End Course Page Banner -->
+
+  <!-- start most popular cousrs -->
+
+  <div class="container mt-5">
+    <h1 class="text-center">All Course</h1>
+    <div class="row mt-4">
+      <%record.forEach(function(p){ %>
+        <div class="col-sm-4 mb-4">
+          <a href="#" class="btn" style="text-align: left; padding: 0px; margin: 0px;">
+            <div class="card">
+              <img src="/images/<%=p.course_img%>" class="card-img-top" alt="Guiatar" height="300px" />
+              <div class="card-body">
+                <h5 class="card-title"><%=p.course_name%></h5>
+                <p class="card-text"><%=p.course_desc%></p>
+              </div>
+              <div class="card-footer">
+                    <p class="card-text d-inline">Price: <small><del>&#8377 <%=p.course_original_price%></del></small>
+                      <span class="font-weight-bolder">&#8377 <%=p.course_price%></span>
+                    </p>
+                    <a href="/Course_Details/<%=p._id%>" class="btn btn-primary text-white font-weight-bolder font-right">Enroll</a>
+     
+              </div>
+            </div>
+          </a>
+        </div>
+        <% }) %>
+  
+    </div>
+  </div>
+
+
+  <!-- end most popular cousrs -->
+ 
+<%- include('./Partials/Footer.ejs') %>

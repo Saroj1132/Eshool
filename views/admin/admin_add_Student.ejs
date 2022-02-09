@@ -1,0 +1,73 @@
+<%- include('./Partials/header.ejs') %>
+
+<div class="col-sm-6 mt-5 mx-3 jumbotron">
+    <h3 class="text-center">Add New Student</h3>
+    <form action="/admin/admin_add_Student" method="post" id="student" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="Student_Name" class="pl-2 font-weight-bold">Name</label> &nbsp;&nbsp;<small id="smsg1"></small>
+            <input type="text" id="Student_Name" class="form-control" name="Student_Name">
+          </div>
+          <div class="form-group">
+            <label for="Student_Email" class="pl-2 font-weight-bold">Email</label> &nbsp;&nbsp;<small id="smsg1"></small>
+            <input type="text" id="Student_Email" class="form-control" name="Student_Email">
+          </div>
+          <div class="form-group">
+            <label for="Student_Password" class="pl-2 font-weight-bold">Password</label> &nbsp;&nbsp;<small id="smsg1"></small>
+            <input type="text" id="Student_Password" class="form-control" name="Student_Password">
+          </div>
+          <div class="form-group">
+            <label for="Student_Occupation" class="pl-2 font-weight-bold">Occupation</label> &nbsp;&nbsp;<small id="smsg1"></small>
+            <input type="text" id="Student_Occupation" class="form-control" name="Student_Occupation">
+          </div>
+          <div class="modal-footer">
+            <span id="messagelog"></span>
+            <button type="submit" onclick="courseadd()" class="btn btn-danger" id="coursesubmitbtn" name="coursesubmitbtn">Submit</button>
+            <a href="/admin/students" class="btn btn-secondary">close</a>
+          </div>
+          <p style="color: green;"><%=msg%></p>
+    </form>
+</div>
+
+<%- include('./Partials/Footer.ejs') %>
+
+<script>
+  $("#student").validate({
+  rules: {
+      
+      
+      Student_Name: {
+          required: true,
+      },
+      Student_Email: {
+          required: true,
+          email: true
+      },
+      Student_Password: {
+          required: true,
+      },
+      Student_Occupation: {
+          required: true,
+      }
+  },
+  messages: {
+    
+      
+      Student_Name: {
+          required: "Please enter student's name"
+      },
+      Student_Email: {
+          required: "Please enter students's email_id",
+          email: "Please enter a valid Email"
+      },
+      Student_Password: {
+          required: "Please enter student's password"
+      },
+      Student_Occupation: {
+          required: "Please enter students's Occupation"
+      }
+  }
+  
+});
+</script>
+
+ 
